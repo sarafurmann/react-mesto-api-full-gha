@@ -62,7 +62,7 @@ export class Api {
     }
 }
 
-export const api = new Api('https://api.mesto-react-app.nomoredomains.work/', {
+export const api = new Api('https://api.mesto-react-app.nomoredomains.work', {
     headers: {
         'Content-Type': 'application/json',
         'authorization': `Bearer ${localStorage.getItem('jwt')}`,
