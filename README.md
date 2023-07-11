@@ -12,6 +12,6 @@
 
 IP 84.252.143.53
 
-Frontend https://mesto-react-app.nomoredomains.work/
+Frontend https://mesto-react-app.nomoredomains.work
 
-Backend https://mesto-react-app.nomoredomains.work/api/
+Backend https://api.mesto-react-app.nomoredomains.work
