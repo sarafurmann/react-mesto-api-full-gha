@@ -10,7 +10,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.252.143.53
+IP-адрес IP 84.252.143.53
 
 Frontend https://mesto-react-app.nomoredomains.work/
 
