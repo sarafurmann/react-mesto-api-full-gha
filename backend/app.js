@@ -15,7 +15,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cors({
-  origin: 'http://84.252.143.53',
+  origin: 'https://mesto-react-app.nomoredomains.work',
   optionsSuccessStatus: 200,
 }));
 app.use(express.json());
