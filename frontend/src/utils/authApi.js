@@ -44,7 +44,7 @@ export class Api {
 }
 
 
-export const api = new Api('https://auth.nomoreparties.co', {
+export const api = new Api('/api', {
     headers: {
       'Content-Type': 'application/json'
     }
