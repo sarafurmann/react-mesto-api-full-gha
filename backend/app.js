@@ -14,7 +14,10 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://84.252.143.53',
+  optionsSuccessStatus: 200,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
