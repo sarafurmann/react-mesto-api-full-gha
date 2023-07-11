@@ -51,6 +51,12 @@ app.post(
   createUser,
 );
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use((req, res, next) => {
   next(new NotFoundError('Страницы по запрошенному URL не существует'));
 });
