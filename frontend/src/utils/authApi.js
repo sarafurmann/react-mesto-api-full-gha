@@ -44,7 +44,7 @@ export class Api {
 }
 
 
-export const api = new Api('/api', {
+export const api = new Api('https://api.mesto-react-app.nomoredomains.work/', {
     headers: {
       'Content-Type': 'application/json'
     }
