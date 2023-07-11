@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 app.use('/cards', auth, cardRouter);
 app.use('/users', auth, userRouter);
