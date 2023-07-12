@@ -4,7 +4,6 @@ import User from '../models/user';
 import BadRequestError from '../errors/bad-request-error';
 import InternalServerError from '../errors/internal-server-error';
 import NotFoundError from '../errors/not-found-error';
-import NotAuthorizedError from '../errors/not-authorized-error';
 import ConflictError from '../errors/conflict-error';
 
 export const getUserss = async (req, res, next) => {
