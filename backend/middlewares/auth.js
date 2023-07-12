@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken';
 import NotAuthorizedError from '../errors/not-authorized-error';
 
+const { NODE_ENV, JWT_SECRET_KEY } = process.env;
+
 const extractBearerToken = (header) => header.replace('Bearer ', '');
 
 export default (req, res, next) => {
@@ -15,7 +17,7 @@ export default (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET_KEY : 'dev-secret');
   } catch (err) {
     next(new NotAuthorizedError('Необходима авторизация'));
     return;

@@ -6,6 +6,8 @@ import InternalServerError from '../errors/internal-server-error';
 import NotFoundError from '../errors/not-found-error';
 import ConflictError from '../errors/conflict-error';
 
+const { NODE_ENV, JWT_SECRET_KEY } = process.env;
+
 export const getUserss = async (req, res, next) => {
   try {
     const users = await User.find({});
@@ -129,7 +131,7 @@ export const login = async (req, res, next) => {
   try {
     const user = await User.findUserByCredentials(email, password);
     res.send({
-      token: jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '7d' }),
+      token: jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET_KEY : 'dev-secret', { expiresIn: '7d' }),
     });
   } catch (err) {
     next(err);
