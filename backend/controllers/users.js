@@ -130,9 +130,9 @@ export const login = async (req, res, next) => {
   try {
     const user = await User.findUserByCredentials(email, password);
     res.send({
-      token: jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' }),
+      token: jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '7d' }),
     });
   } catch (err) {
-    next(new NotAuthorizedError(err.message));
+    next(err);
   }
 };

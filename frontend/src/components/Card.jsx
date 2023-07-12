@@ -3,8 +3,8 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext'
 
 export const Card = ({ card, onClick, onLike, onDelete }) => {
     const user = useContext(CurrentUserContext)
-    const isLiked = card.likes.some((like) => like._id === user._id)
-    const canDelete = user._id === card.owner._id
+    const isLiked = card.likes.some((like) => like === user._id)
+    const canDelete = user._id === card.owner
 
     const handleClick = () => {
         onClick(card);

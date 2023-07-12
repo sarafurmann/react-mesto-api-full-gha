@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { api } from '../utils/authApi'
-import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
-    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -14,7 +12,7 @@ export const Login = () => {
             .login(password, email)
             .then((data) => {
                 localStorage.setItem('jwt', data.token)
-                navigate('/')
+                window.location.href = '/'
             })
             .catch(console.error)
     }

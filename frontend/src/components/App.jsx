@@ -52,7 +52,7 @@ function App() {
   }
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some(i => i._id === currentUser._id)
+    const isLiked = card.likes.some(like => like === currentUser._id)
     const action = isLiked ? api.dislikeCard.bind(api) : api.likeCard.bind(api)
 
     action(card.id).then((newCard) => {

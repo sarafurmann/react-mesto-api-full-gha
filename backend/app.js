@@ -10,6 +10,8 @@ import NotFoundError from './errors/not-found-error';
 import { URL_REGEX } from './constants';
 import { requestLogger, errorLogger } from './middlewares/logger';
 
+import 'dotenv/config';
+
 const { PORT = 3000 } = process.env;
 
 const app = express();
@@ -67,7 +69,9 @@ app.use(errors());
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  res.status(err.statusCode).send({ message: err.message });
+  const statusCode = err.statusCode || 500;
+  const message = statusCode === 500 ? 'Server Error' : err.message;
+  res.status(statusCode).send({ message });
 });
 
 app.listen(PORT, () => {
