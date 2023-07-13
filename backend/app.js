@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -9,8 +11,6 @@ import { login, createUser } from './controllers/users';
 import NotFoundError from './errors/not-found-error';
 import { URL_REGEX } from './constants';
 import { requestLogger, errorLogger } from './middlewares/logger';
-
-import 'dotenv/config';
 
 const { PORT = 3000 } = process.env;
 
